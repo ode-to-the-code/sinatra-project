@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class Autobus < ActiveRecord::Base
   has_secure_password
   has_many :riders
 

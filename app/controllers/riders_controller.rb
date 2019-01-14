@@ -1,5 +1,5 @@
 
-  class RiderController < Sinatra::Base
+  class RidersController < Sinatra::Base
 
 
 
