@@ -7,6 +7,6 @@ end
 #
 #
 use Rack::MethodOverride
-use AutobusesController
+use AutopodsController
 use RidersController
 run ApplicationController

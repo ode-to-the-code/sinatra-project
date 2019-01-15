@@ -1,6 +1,6 @@
 require './config/environment'
 require 'pry'
-
+# each rider can have multiple autpods, which are small bubble-like vehicles which come when summonned and transport individuals around the city.
 class ApplicationController < Sinatra::Base
 
   configure do
@@ -29,6 +29,6 @@ class ApplicationController < Sinatra::Base
 
 
 
- end 
+ end
 
 end
