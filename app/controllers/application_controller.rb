@@ -12,15 +12,23 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    # binding.pry
     # erb :welcome
     erb :index
   end
+
+  # get '/riders/new' do
+  #   "Hello World"
+  # end
+
+
+
 
   helpers do
 
  # this method just extracts the current user at that moment. it's so you don't have to manually write this code and query the database. this method queries the user table.
      def current_user
-       @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+       @current_user ||= Rider.find_by(id: session[:rider_id]) if session[:rider_id]
      end
 
      def logged_in?

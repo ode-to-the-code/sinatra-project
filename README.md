@@ -1,6 +1,10 @@
 # sinatra-project
-autobus
 
+
+Summary:
+Autopods is an MVC Sinatra app that allows riders to use autopods. These are individual, automatic vehicles that can carry riders anywehre in their city. A rider can have many autopods, though one autopod can only be used by one individual rider.
+
+License: https://opensource.org/licenses/MIT
 
 
 

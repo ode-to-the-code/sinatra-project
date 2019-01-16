@@ -1,4 +1,4 @@
-class AutopodsController < Sinatra::Base
+class AutopodsController < ApplicationController
 
 
 
