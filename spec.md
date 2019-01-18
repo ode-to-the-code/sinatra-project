@@ -3,11 +3,12 @@
 Specs:
 - [x] Use Sinatra to build the app
 - [x] Use ActiveRecord for storing information in a database
-Used the migrations and models to interact with the database 
-- [ ] Include more than one model class (e.g. User, Post, Category)
-- [ ] Include at least one has_many relationship on your User model (e.g. User has_many Posts)
-- [ ] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
-- [ ] Include user accounts with unique login attribute (username or email)
+Used the migrations and models to interact with the database
+- [x] Include more than one model class (e.g. User, Post, Category)
+I'm using the Autopod and Rider models. One rider can reserve many autopods, but each autopod belongs to only one rider
+- [x] Include at least one has_many relationship on your User model (e.g. User has_many Posts)
+- [x] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
+- [x] Include user accounts with unique login attribute (username or email)
 - [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
 - [ ] Ensure that users can't modify content created by other users
 - [ ] Include user input validations

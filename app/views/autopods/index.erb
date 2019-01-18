@@ -1,0 +1,8 @@
+
+<%# binding.pry %>
+
+<%= "Welcome, #{current_user.username}!" %>
+
+<% Autopod.all.each do |autopod| %>
+<%= autopod.content %>
+<% end %>
