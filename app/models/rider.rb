@@ -1,5 +1,6 @@
 class Rider < ActiveRecord::Base
-  belongs_to :autopod
+  has_secure_password
+  has_many :autopods 
 
-  
+
 end
