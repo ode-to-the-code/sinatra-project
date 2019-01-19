@@ -45,12 +45,15 @@ class AutopodsController < ApplicationController
 
   get '/autopods/:id' do
     if logged_in?
+      # binding.pry
       @autopod = Autopod.find_by(id: params[:id])
       erb :"autopods/show"
     else
       redirect "/riders/login"
     end
   end
+
+
 
 
 #
@@ -63,7 +66,11 @@ class AutopodsController < ApplicationController
 #   end
 # end
 
-
+  delete '/autopods/:id/delete' do #delete action
+    @autopod = Autopod.find_by_id(params[:id])
+    @autopod.delete
+    redirect to '/autopods'
+  end
 
 
 

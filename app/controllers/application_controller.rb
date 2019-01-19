@@ -24,6 +24,9 @@ class ApplicationController < Sinatra::Base
 #   get '/riders/logout' do
 #   "Hello World"
 # end
+  # get '/logout' do
+  #   "hello!"
+  # end
 
 
 

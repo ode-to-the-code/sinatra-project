@@ -62,7 +62,8 @@ class RidersController < ApplicationController
   # end
 
 
-#   get '/riders/logout' do
+#   # get '/riders/logout' do
+#   get '/logout' do
 #    binding.pry
 #   # if current_user?
 #   if session[:rider_id]
@@ -75,12 +76,24 @@ class RidersController < ApplicationController
 # end
 
 
-get "/riders/:id" do
-  binding.pry
-  # @rider = Rider.find_by(params[:rider_id]).autopods
-  
-  erb :'riders/show'
-end
+  get "/riders/:id" do
+    binding.pry
+    # @rider = Rider.find_by(params[:rider_id]).autopods
+    erb :'riders/show'
+  end
+
+get '/riders/logout' do
+  # get '/logout' do
+     binding.pry
+    # if current_user?
+    if session[:rider_id]
+      session.clear
+      puts "Goodbye, Rider! You've been logged out."
+      redirect "/riders/login"
+    else
+      redirect "/riders"
+    end
+  end
 
 
 end

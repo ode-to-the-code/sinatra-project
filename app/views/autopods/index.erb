@@ -2,7 +2,11 @@
 <%# binding.pry %>
 
 <%= "Welcome, #{current_user.username}!" %>
-
+<br><br>
+<br><br>
+<h1> Pods: </h1>
 <% Autopod.all.each do |autopod| %>
-<%= autopod.content %>
+<ul>
+<li> <%= autopod.pod_name %> </li>
+</ul>
 <% end %>
