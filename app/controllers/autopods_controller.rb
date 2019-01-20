@@ -46,8 +46,12 @@ class AutopodsController < ApplicationController
   get '/autopods/:id' do
     if logged_in?
       # binding.pry
-      @autopod = Autopod.find_by(id: params[:id])
-      erb :"autopods/show"
+      if @autopod = Autopod.find_by(id: params[:id])
+        erb :"autopods/show"
+      else
+        # "no such autopod!"
+        redirect "/autopods"
+      end
     else
       redirect "/riders/login"
     end

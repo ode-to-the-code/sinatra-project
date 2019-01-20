@@ -1,5 +1,7 @@
 class RidersController < ApplicationController
 
+
+
     get '/riders/new' do
       # "hello world"
       erb :'riders/new'
@@ -17,19 +19,19 @@ class RidersController < ApplicationController
 
   post '/signup' do
       # binding.pry
-    if !params[:username].empty? && !params[:email].empty? && !params[:password].empty?
-      # binding.pry
-      @rider = Rider.new(:username => params[:username], :email => params[:email], :password => params[:password])
-      @rider.save
+      if !params[:username].empty? && !params[:email].empty? && !params[:password].empty?
         # binding.pry
-        session[:rider_id] = @rider.id
-    else
-      redirect '/signup'
-    end
+        @rider = Rider.new(:username => params[:username], :email => params[:email], :password => params[:password])
+        @rider.save
+          # binding.pry
+          session[:rider_id] = @rider.id
+      else
+        redirect '/signup'
+      end
     #create session id
-    if @rider.save
-        redirect '/autopods'
-   end
+      if @rider.save
+          redirect '/autopods'
+      end
     # if signup doesn't work, then send them back to signup
   end
 
@@ -41,7 +43,7 @@ class RidersController < ApplicationController
       # erb :'users/new'
       erb :'riders/login'
     end
-
+  end
 
 # binding.pry
   post '/riders/login' do
@@ -76,7 +78,7 @@ class RidersController < ApplicationController
 # end
 
 
-get '/riders/logout' do
+ get '/riders/logout' do
   # get '/logout' do
     #  binding.pry
     # if current_user?
@@ -85,24 +87,23 @@ get '/riders/logout' do
       puts "Goodbye, Rider! You've been logged out."
       redirect "/riders/login"
     else
-      redirect "/riders"
+      redirect "/riders/logout"
     end
-  end
-
 
 end
 
   get "/riders/:id" do
-    binding.pry
+    # binding.pry
     # @rider = Rider.find_by(params[:rider_id]).autopods
     erb :'riders/show'
   end
- # 
+ #
  #  delete '/riders/:id/delete' do #delete action
  #    @rider = Rider.find_by_id(params[:id])
  #    @rider.delete
  #    redirect to '/welcome'
  # end
+
 
 
 
