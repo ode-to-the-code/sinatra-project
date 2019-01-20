@@ -1,8 +1,14 @@
 <%= @autopod.pod_name %>
 
 
-<a href="/autopods/<%= @autopod.id %>/delete"> Delete 
+<!-- <a href="/autopods/<%= @autopod.id %>/delete"> Delete
   <!-- <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete Autopod">
 </form> -->
-</a>
+</a> -->
+
+
+<form action="/autopods/<%= @autopod.id %>/delete" method="post">
+<input id="hidden" type="hidden" name="_method" value="delete">
+<input type="submit" value="Delete Autopod">
+</form>

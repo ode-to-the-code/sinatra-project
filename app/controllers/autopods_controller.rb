@@ -54,7 +54,26 @@ class AutopodsController < ApplicationController
   end
 
 
+    # binding.pry
+  delete '/autopods/:id/delete' do #delete action
+    # binding.pry
+      @autopod = Autopod.find_by_id(params[:id])
+      @autopod.delete
+      redirect to '/autopods'
+    end
 
+
+  get '/autopods/:id/edit' do  #load edit form
+      @autopod = Autopod.find_by_id(params[:id])
+      erb :'autopods/edit'
+    end
+
+  patch '/autopods/:id' do #edit action
+      @autopod = Autopod.find_by_id(params[:id])
+      @autopod.pod_name = params[:pod_name]
+      @autopod.save
+      redirect to "/autopods/#{@autopod.id}"
+  end
 
 #
 #   get '/tweets/:id' do
@@ -66,11 +85,7 @@ class AutopodsController < ApplicationController
 #   end
 # end
 
-  delete '/autopods/:id/delete' do #delete action
-    @autopod = Autopod.find_by_id(params[:id])
-    @autopod.delete
-    redirect to '/autopods'
-  end
+
 
 
 

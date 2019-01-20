@@ -76,15 +76,9 @@ class RidersController < ApplicationController
 # end
 
 
-  get "/riders/:id" do
-    binding.pry
-    # @rider = Rider.find_by(params[:rider_id]).autopods
-    erb :'riders/show'
-  end
-
 get '/riders/logout' do
   # get '/logout' do
-     binding.pry
+    #  binding.pry
     # if current_user?
     if session[:rider_id]
       session.clear
@@ -97,6 +91,19 @@ get '/riders/logout' do
 
 
 end
+
+  get "/riders/:id" do
+    binding.pry
+    # @rider = Rider.find_by(params[:rider_id]).autopods
+    erb :'riders/show'
+  end
+ # 
+ #  delete '/riders/:id/delete' do #delete action
+ #    @rider = Rider.find_by_id(params[:id])
+ #    @rider.delete
+ #    redirect to '/welcome'
+ # end
+
 
 
 

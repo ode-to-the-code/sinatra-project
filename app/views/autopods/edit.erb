@@ -1,0 +1,11 @@
+
+<h1> Right now, this autopod's name is: </h1>
+<br></br>
+<%= @autopod.pod_name %>
+<form action="/autopods/<%= @autopod.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <br></br>
+  <h1> What would you like to change it to?</h1>
+  <input type="text" name="pod_name">
+  <input type="submit" value="submit">
+</form>
