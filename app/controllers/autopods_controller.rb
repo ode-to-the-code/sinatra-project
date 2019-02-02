@@ -85,9 +85,13 @@ end
   patch '/autopods/:id' do #edit action
       @autopod = Autopod.find_by_id(params[:id])
       if logged_in? && @autopod.rider_id == current_user.id # if it's the right user
-          @autopod.pod_name = params[:pod_name]
-          @autopod.save
-          redirect to "/autopods"
+            if !params[:pod_name].empty?
+              @autopod.pod_name = params[:pod_name]
+              @autopod.save
+              redirect to "/autopods"
+            else
+              redirect to "/autopods"
+            end
       else
         redirect to "/autopods/#{@autopod.id}"
       end

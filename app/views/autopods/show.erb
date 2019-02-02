@@ -1,14 +1,31 @@
-<%= @autopod.pod_name %>
-
+Name: <%= @autopod.pod_name %>
+<br>
 
 <!-- <a href="/autopods/<%= @autopod.id %>/delete"> Delete
   <!-- <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete Autopod">
 </form> -->
-</a> -->
+<!-- </a> -->
 
 <%# if @autopod.rider_id == current_user %>
 
+<br>
+<!-- <form action="/autopods/<%= @autopod.id %>/edit" method="post">
+<input id="hidden" type="hidden" name="_method" value="get">
+<input type="submit" value="Edit Autopod">
+</form> -->
+<!-- <a href="/autopod/<%= @autopod.id %>/edit"> Edit Autopod </a> -->
+
+<!-- <form action="/autopods/<%= @autopod.id %>" method="post"> -->
+  <!-- <input id="hidden" type="hidden" name="_method" value="patch"> -->
+  <!-- <input type="text" name="content"> -->
+  <!-- <input type="text" name="pod_name">
+  <input type="submit" value="Edit Autopod"> -->
+<!-- </form> -->
+
+
+  <a href="/autopods/<%=@autopod.id%>/edit">Edit Autopod </a>
+<br>
 
 <form action="/autopods/<%= @autopod.id %>/delete" method="post">
 <input id="hidden" type="hidden" name="_method" value="delete">
