@@ -21,10 +21,17 @@ class RidersController < ApplicationController
       # binding.pry
       if !params[:username].empty? && !params[:email].empty? && !params[:password].empty?
         # binding.pry
-        @rider = Rider.new(:username => params[:username], :email => params[:email], :password => params[:password])
-        @rider.save
+        #
+          if Rider.find_by(username: params[:username], email: params[:email])
+              redirect '/signup'
+          else
+              @rider = Rider.new(username: params[:username], email: params[:email], password: params[:password])
+              @rider.save
+              session[:rider_id] = @rider.id
+          end
+        # end
           # binding.pry
-          session[:rider_id] = @rider.id
+          # session[:rider_id] = @rider.id
       else
         redirect '/signup'
       end
@@ -78,17 +85,20 @@ class RidersController < ApplicationController
 # end
 
 
+ # get '/riders/logout' do
+ # put a small hidden form with a button that takes you to this request
  get '/riders/logout' do
+
   # get '/logout' do
     #  binding.pry
     # if current_user?
-    if session[:rider_id]
+    # if session[:rider_id]
       session.clear
       puts "Goodbye, Rider! You've been logged out."
       redirect "/riders/login"
-    else
-      redirect "/riders/logout"
-    end
+    # else
+    #   redirect "/riders/logout"
+    # end
 
 end
 
@@ -104,6 +114,7 @@ end
  #    redirect to '/welcome'
  # end
 
+# do validation so users
 
 
 

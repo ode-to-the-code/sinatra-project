@@ -7,6 +7,8 @@
 </form> -->
 </a> -->
 
+<%# if @autopod.rider_id == current_user %>
+
 
 <form action="/autopods/<%= @autopod.id %>/delete" method="post">
 <input id="hidden" type="hidden" name="_method" value="delete">

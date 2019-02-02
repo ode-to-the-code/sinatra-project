@@ -1,4 +1,5 @@
 class AutopodsController < ApplicationController
+# require 'pry'
 
   #
   # get '/autopods' do
@@ -62,21 +63,34 @@ class AutopodsController < ApplicationController
   delete '/autopods/:id/delete' do #delete action
     # binding.pry
       @autopod = Autopod.find_by_id(params[:id])
+          # binding.pry
+    if logged_in? && @autopod.rider_id == current_user.id
       @autopod.delete
       redirect to '/autopods'
+    else
+      redirect to '/autopods'
     end
-
+end
 
   get '/autopods/:id/edit' do  #load edit form
       @autopod = Autopod.find_by_id(params[:id])
-      erb :'autopods/edit'
+      if logged_in? && @autopod.rider_id == current_user.id
+            erb :'autopods/edit'
+      else
+        redirect to "/autopods"
+      end
     end
+
 
   patch '/autopods/:id' do #edit action
       @autopod = Autopod.find_by_id(params[:id])
-      @autopod.pod_name = params[:pod_name]
-      @autopod.save
-      redirect to "/autopods/#{@autopod.id}"
+      if logged_in? && @autopod.rider_id == current_user.id # if it's the right user
+          @autopod.pod_name = params[:pod_name]
+          @autopod.save
+          redirect to "/autopods"
+      else
+        redirect to "/autopods/#{@autopod.id}"
+      end
   end
 
 #
