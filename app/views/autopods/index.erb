@@ -1,12 +1,27 @@
 
 <%# binding.pry %>
 
+<!-- # <%= "Welcome, #{current_user.username}!" %>
+# <br><br>
+# <br><br>
+# <h1> Pods: </h1>
+# <% Autopod.all.each do |autopod| %>
+# <ul>
+# <li> <%= autopod.pod_name %> </li>
+# </ul>
+# <% end %> -->
+
+
 <%= "Welcome, #{current_user.username}!" %>
 <br><br>
 <br><br>
 <h1> Pods: </h1>
 <% Autopod.all.each do |autopod| %>
 <ul>
-<li> <%= autopod.pod_name %> </li>
+<li> <a href="/autopods/<%= autopod.id %>"> <%= autopod.pod_name %> </a>  </li>
 </ul>
 <% end %>
+
+
+
+<!-- <a href="#"></a> -->
